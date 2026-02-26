@@ -8,14 +8,14 @@ Bem-vindo ao meu repositório de estudos focado em **Cloud Computing**. Aqui doc
 
 Abaixo estão os links para os estudos detalhados, organizados por tópicos:
 
-### 1. Compute & Networking
-* **[Provisionamento de EC2 e Acesso SSH](./01-criacao-ec2-ssh/README.md)** *Onde aprendi a criar instâncias Linux, configurar Security Groups (Firewall), gerenciar chaves `.pem` no Windows e realizar conexões seguras via terminal.*
+### 1. Criando Instancia
+* **[Criando uma Instancia e acessando via SSH](./01-criacao-ec2-ssh/README.md)** *Onde aprendi a criar instâncias Linux, configurar Security Groups (Firewall), gerenciar chaves `.pem` no Windows e realizar conexões seguras via terminal.*
 
-### 2. Storage (Próximos passos)
-* **[Em breve] Amazon S3** - Armazenamento de objetos.
+### 2. Testando a Instancia
+* **[Pingando a Instancia](./02-teste-conectividade-icmp/README.md)** *Onde aprendi a configurar o protocolo correto para realizar o procedimento*
 
-### 3. Identity & Access Management (Próximos passos)
-* **[Em breve] IAM** - Gestão de usuários e políticas de segurança.
+### 3. Realizar mais testes com a Instancia (brincar com meus aprendizados rs)
+* **[Em breve] ** - Gestão de usuários e políticas de segurança ou algum outro tema.
 
 ---
 
