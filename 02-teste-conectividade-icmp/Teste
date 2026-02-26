@@ -1,0 +1,46 @@
+# 📡 Teste de Conectividade: O Protocolo ICMP (Ping)
+
+Após conseguir o acesso via SSH, o próximo passo foi entender por que, por padrão, o comando `ping` não funciona em uma instância EC2, mesmo que ela esteja ligada e acessível.
+
+---
+
+## 🔍 O que é o Ping?
+O comando `ping` utiliza o protocolo **ICMP** (Internet Control Message Protocol). Ele serve para verificar se um host está ativo e qual é a latência da rede. 
+
+> **A Descoberta:** Diferente do SSH (que usa TCP na porta 22), o Ping não usa "portas", mas sim "tipos" de mensagens ICMP. Por segurança, a AWS bloqueia isso por padrão.
+
+---
+
+## 🛠️ O que foi feito
+
+### 1. O bloqueio inicial
+Tentei dar um `ping [IP-da-instancia]` do meu terminal e recebi um *Timeout*. Isso confirmou que o meu **Security Group** estava fazendo o trabalho dele: bloqueando tudo o que eu não autorizei explicitamente.
+
+### 2. Liberando o "Eco"
+Para o Ping funcionar, tive que voltar ao Console da AWS e editar as **Inbound Rules** (Regras de Entrada):
+* **Type:** All ICMP - IPv4
+* **Protocol:** ICMP
+* **Port Range:** All
+* **Source:** My IP (Sempre mantendo a segurança de não abrir para o mundo!)
+
+<p align="center">
+  <img src="img/regra-icmp-aws.png" alt="Regra ICMP no Security Group" width="700">
+</p>
+
+---
+
+## ✅ Resultado Final
+Após salvar a regra, o terminal começou a responder instantaneamente. Ver os pacotes indo e voltando confirmou que a rota de rede estava 100% operacional.
+
+<p align="center">
+  <img src="img/print-ping-sucesso.png" alt="Sucesso no comando Ping" width="700">
+</p>
+
+---
+
+## 🧠 Lições Aprendidas
+* **Protocolos Diferentes:** Aprendi que liberar o SSH (TCP) não libera o Ping (ICMP). São "idiomas" diferentes na rede.
+* **Segurança Granular:** No Security Group, você controla exatamente o que entra. Se você não pediu o Ping, a AWS protege você ocultando sua máquina de testes de varredura.
+* **Troubleshooting de Rede:** O Ping é a ferramenta número 1 para saber se o problema é na aplicação ou na conectividade básica.
+
+---
