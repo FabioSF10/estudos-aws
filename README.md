@@ -15,7 +15,7 @@ Abaixo estão os links para os estudos detalhados, organizados por tópicos:
 * **[Pingando a Instancia](./02-teste-conectividade-icmp/README.md)** *Onde aprendi a configurar o protocolo correto para realizar o procedimento*
 
 ### 3. Aplicações Serverless (AWS Lambda)
-* **[Gerador de CPF - Full Stack Serverless](https://estudos-aws-dksd.vercel.app/)** - *Desenvolvimento de uma ferramenta utilizando Python em AWS Lambda, integrada via Function URL com Frontend hospedado na Vercel.
+* **[Gerador de CPF - Full Stack Serverless](./gerador-cpf-web/README.md)** - *Desenvolvimento de uma ferramenta utilizando Python em AWS Lambda, integrada via Function URL com Frontend hospedado na Vercel.
 
 ---
 
