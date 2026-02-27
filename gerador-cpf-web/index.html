@@ -67,7 +67,7 @@
         <button onclick="chamarLambda()" id="btn-gerar">Gerar Novo CPF</button>
     </div>
 
-    <script>
+   <script>
         // Aqui serve para fazer a comunicação com a AWS (JavaScript)
         async function chamarLambda() {
             const display = document.getElementById('cpf-display');
@@ -78,7 +78,7 @@
             display.innerText = "Gerando...";
 
             try {
-                // IMPORTANTE: Aqui serve para você colar a URL que a AWS vai te dar
+                // Link da sua AWS sem a barra no final
                 const urlDaSuaLambda = 'https://l56buoq6dljc53d4orun63jq6q0xxelu.lambda-url.us-east-1.on.aws';
                 
                 const resposta = await fetch(urlDaSuaLambda);
@@ -90,6 +90,11 @@
                 display.innerText = "Erro ao conectar";
                 console.error("Erro na chamada:", erro);
             } finally {
-
+                // Aqui serve para reativar o botão após o fim do processo
                 botao.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
 
