@@ -179,7 +179,35 @@
 </footer>
 
 <script>
-    // Aqui você cola as funções de 'enviarFrase' e 'gerarCPF' que usamos anteriormente
+    // Função para o Gerador de CPF (Seção 03)
+    async function chamarLambda() {
+        const display = document.getElementById('cpf-display');
+        const botao = document.getElementById('btn-gerar');
+
+        // Desabilita para evitar múltiplos cliques
+        botao.disabled = true;
+        display.innerText = "Gerando...";
+
+        try {
+            // URL da sua Function URL da AWS
+            const urlDaSuaLambda = 'https://l56buoq6dljc53d4orun63jq6q0xxelu.lambda-url.us-east-1.on.aws';
+            
+            const resposta = await fetch(urlDaSuaLambda);
+            
+            if (!resposta.ok) throw new Error('Erro na rede');
+
+            const dados = await resposta.json();
+
+            // Atualiza o display com o CPF vindo da nuvem
+            display.innerText = dados.cpf;
+        } catch (erro) {
+            display.innerText = "Erro ao conectar";
+            console.error("Erro na chamada:", erro);
+        } finally {
+            // Reativa o botão
+            botao.disabled = false;
+        }
+    }
 </script>
 
 </body>
