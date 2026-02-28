@@ -25,7 +25,7 @@ O backend foi construído com **Python 3.12** rodando em **AWS Lambda**, integra
 Desenvolver em nuvem exige resolver gargalos reais de integração. Abaixo, destaco os principais desafios superados:
 
 ### 1. Gestão de CORS (Cross-Origin Resource Sharing)
-Ajuste fino nos cabeçalhos de resposta e permissões de métodos (`GET`, `POST`, `OPTIONS`) na Function URL para permitir a comunicação segura entre o domínio do Frontend (Vercel) e o backend (AWS).
+Ajuste fino nos cabeçalhos de resposta e permissão de método (`POST`) na Function URL para permitir a comunicação segura entre o domínio do Frontend (Vercel) e o backend (AWS).
 
 <img width="1318" height="517" alt="image" src="https://github.com/user-attachments/assets/76daa68b-6133-4130-af9b-ec89de6349d6" />
 
@@ -48,9 +48,11 @@ Este projeto reflete minha mentalidade técnica e pessoal: unir a precisão da e
 ---
 
 ### 📬 Contato
-**Fabio Stefano**
-Linkedin: https://www.linkedin.com/in/fabio-figueiredo-5601041b2
-Email:Fabio.sf10@hotmail.com
-*Analista de Suporte T.I. | Focado em AWS Cloud & AWS Certified Cloud Practitioner Path*
+
+Sinta-se à vontade para se conectar comigo para trocarmos experiências sobre AWS e tecnologia!
+
+* **LinkedIn:** [linkedin.com/in/fabio-figueiredo-5601041b2](https://www.linkedin.com/in/fabio-figueiredo-5601041b2)
+* **E-mail:** [Fabio.sf10@hotmail.com](mailto:Fabio.sf10@hotmail.com)
+* **Cargo:** *Analista de Suporte T.I. | Focado em AWS Cloud & AWS Certified Cloud Practitioner Path*
 
 ---
