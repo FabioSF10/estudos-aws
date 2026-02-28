@@ -254,36 +254,47 @@
 
 
 // --- FUNÇÃO PARA CARREGAR MENSAGENS DO DYNAMODB (SEÇÃO 04) ---
-    async function carregarMensagens() {
-        const container = document.getElementById('mensagens-container');
-        const urlMural = 'https://inz3drxxdn7eswrsl55c4hmj2u0egmgd.lambda-url.us-east-1.on.aws/';
+   async function carregarMensagens() {
+    const container = document.getElementById('mensagens-container');
+    const urlMural = 'https://inz3drxxdn7eswrsl55c4hmj2u0egmgd.lambda-url.us-east-1.on.aws/';
 
-        try {
-            const resposta = await fetch(urlMural); // Faz um GET por padrão
-            const mensagens = await resposta.json();
-
-            container.innerHTML = ""; // Limpa os exemplos fixos (Maria e João)
-
-            if (mensagens.length === 0) {
-                container.innerHTML = "<p style='color: #666;'>Nenhuma mensagem ainda. Seja o primeiro!</p>";
-                return;
-            }
-
-            mensagens.forEach(msg => {
-                const div = document.createElement('div');
-                div.style = "background: #222; padding: 12px; border-radius: 8px; margin-bottom: 12px; border-left: 4px solid #3fb950; box-shadow: 0 4px 6px rgba(0,0,0,0.2);";
-                div.innerHTML = `
-                    <strong style="color: #fff; font-size: 1em;">${msg.nick}</strong>
-                    <p style="color: #ccc; margin: 8px 0; line-height: 1.4;">${msg.frase}</p>
-                    <small style="color: #666; font-size: 0.75em;">${msg.data} • AWS Cloud</small>
-                `;
-                container.appendChild(div);
-            });
-        } catch (e) {
-            console.error("Erro ao carregar:", e);
-            container.innerHTML = "<p style='color: #ff4a4a;'>⚠️ Erro ao carregar o mural da AWS.</p>";
+    try {
+        const resposta = await fetch(urlMural);
+        
+        // Se a AWS responder erro (500 ou 403), não tenta rodar o forEach
+        if (!resposta.ok) {
+            throw new Error("Resposta da AWS não foi OK");
         }
+
+        const mensagens = await resposta.json();
+
+        // Garante que 'mensagens' é realmente uma lista antes de usar o forEach
+        if (!Array.isArray(mensagens)) {
+            throw new Error("AWS não retornou uma lista");
+        }
+
+        container.innerHTML = ""; 
+
+        if (mensagens.length === 0) {
+            container.innerHTML = "<p style='color: #666;'>Nenhuma mensagem ainda.</p>";
+            return;
+        }
+
+        mensagens.forEach(msg => {
+            const div = document.createElement('div');
+            div.style = "background: #222; padding: 10px; border-radius: 5px; margin-bottom: 10px; border-left: 3px solid #3fb950;";
+            div.innerHTML = `
+                <strong style="color: #fff;">${msg.nick || 'Anônimo'}:</strong>
+                <p style="color: #ccc; margin: 5px 0;">${msg.frase || ''}</p>
+                <small style="color: #888;">${msg.data || ''} - AWS Cloud</small>
+            `;
+            container.appendChild(div);
+        });
+    } catch (e) {
+        console.error("Erro no Mural:", e);
+        container.innerHTML = "<p style='color: #ff4a4a;'>⚠️ Erro ao carregar o mural da AWS.</p>";
     }
+}
 
     // --- FUNÇÃO PARA ENVIAR FRASE (SEÇÃO 04) ---
     async function enviarFrase() {
