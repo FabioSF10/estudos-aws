@@ -298,6 +298,44 @@
             btn.disabled = false;
         }
     }
+
+// --- FUNÇÃO PARA CARREGAR MENSAGENS DO DYNAMODB ---
+async function carregarMensagens() {
+    const container = document.getElementById('mensagens-container');
+    const urlMural = 'https://inz3drxxdn7eswrsl55c4hmj2u0egmgd.lambda-url.us-east-1.on.aws/';
+
+    try {
+        const resposta = await fetch(urlMural); // Por padrão é um GET
+        const mensagens = await resposta.json();
+
+        // Limpa as mensagens de exemplo (Maria e João)
+        container.innerHTML = "";
+
+        if (mensagens.length === 0) {
+            container.innerHTML = "<p style='color: #666;'>Nenhuma mensagem ainda. Seja o primeiro!</p>";
+            return;
+        }
+
+        // Monta o HTML para cada mensagem vinda da AWS
+        mensagens.forEach(msg => {
+            const div = document.createElement('div');
+            div.style = "background: #222; padding: 10px; border-radius: 5px; margin-bottom: 10px; border-left: 3px solid #3fb950;";
+            div.innerHTML = `
+                <strong style="color: #fff;">${msg.nick}:</strong>
+                <p style="color: #ccc; margin: 5px 0;">${msg.frase}</p>
+                <small style="color: #888;">${msg.data} - AWS Cloud</small>
+            `;
+            container.appendChild(div);
+        });
+    } catch (e) {
+        console.error("Erro ao carregar mensagens:", e);
+        container.innerHTML = "<p style='color: red;'>Erro ao carregar o mural.</p>";
+    }
+}
+
+// CHAMA A FUNÇÃO ASSIM QUE A PÁGINA ABRE
+window.onload = carregarMensagens;
+    
 </script>
     
 </script>
