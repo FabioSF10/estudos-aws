@@ -2,9 +2,6 @@
 
 Projeto desenvolvido para fins de estudo de computação em nuvem (AWS) e integração Full Stack. O sistema gera um CPF válido seguindo o algoritmo oficial de validação.
 
-## 🔗 Link do Projeto
-[Acesse aqui o Gerador de CPF no Vercel](https://estudos-aws-dksd.vercel.app/)
-
 ## 🛠️ Tecnologias Utilizadas
 
 * **Frontend:** HTML5, CSS3 e JavaScript (Hospedado na **Vercel**).
