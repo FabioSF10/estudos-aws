@@ -158,19 +158,42 @@
 
 <section class="dark-bg">
     <div class="content">
-        <h2>04. Mural de Frases (DynamoDB)</h2>
-        <p>Integração completa: Frontend -> Lambda -> DynamoDB. Os dados inseridos abaixo são salvos permanentemente em um banco de dados NoSQL.</p>
-        <div class="widget">
-            <input type="text" id="nick" placeholder="Seu Nick">
-            <textarea id="frase" placeholder="Deixe um feedback..."></textarea>
-            <button onclick="enviarFrase()">Enviar para a Nuvem</button>
-            <p id="status-mural"></p>
+        <h2>📝 04. Mural de Feedbacks (DynamoDB + NoSQL)</h2>
+        <p>Este projeto demonstra a integração completa de uma aplicação: o que você escreve aqui atravessa a nuvem e é gravado permanentemente em um banco de dados <strong>NoSQL</strong>.</p>
+        
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 15px;">
+                <strong>🗄️ Database:</strong> Uso do <strong>Amazon DynamoDB</strong> para armazenamento de alto desempenho e baixa latência.
+            </li>
+            <li style="margin-bottom: 15px;">
+                <strong>🤝 Compaixão e Liberdade:</strong> Um espaço aberto para conexões autênticas, onde a tecnologia serve ao propósito humano.
+            </li>
+            <li style="margin-bottom: 15px;">
+                <strong>🛠️ Serverless Flow:</strong> Frontend -> API Gateway -> Lambda -> DynamoDB.
+            </li>
+        </ul>
+        
+        <br>
+        <p style="font-size: 0.85em; color: var(--primary);">* Em desenvolvimento: Em breve listagem de mensagens em tempo real.</p>
+    </div>
+
+    <div class="media">
+        <div class="widget" style="background: #1a1a1a; padding: 30px; border-radius: 12px; border: 1px solid #333; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <h3 style="color: var(--primary); margin-top: 0; text-align: center;">Deixe sua mensagem</h3>
+            
+            <label style="font-size: 0.8em; color: #888;">Seu Nome ou Nick:</label>
+            <input type="text" id="nick" placeholder="Ex: Fabio Stefano" style="width: 100%; padding: 10px; margin: 5px 0 15px 0; background: #222; border: 1px solid #444; color: #fff; border-radius: 5px;">
+            
+            <label style="font-size: 0.8em; color: #888;">Sua Frase:</label>
+            <textarea id="frase" placeholder="O que você está achando da jornada?" style="width: 100%; padding: 10px; height: 80px; background: #222; border: 1px solid #444; color: #fff; border-radius: 5px; resize: none;"></textarea>
+
+            <button onclick="enviarFrase()" id="btn-mural" style="margin-top: 15px; background-color: var(--primary); color: #000; font-weight: bold;">Enviar para o DynamoDB</button>
+            <p id="status-mural" style="margin-top: 10px; font-size: 0.8em; text-align: center;"></p>
         </div>
     </div>
-    <div class="media">
-        <img src="print-dynamo.png" alt="DynamoDB Table">
-    </div>
 </section>
+
+    
 
 <footer>
     <p>Fabio Stefano de Figueiredo | 31 anos</p>
