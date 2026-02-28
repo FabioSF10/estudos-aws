@@ -15,7 +15,10 @@ Abaixo estão os links para os estudos detalhados, organizados por tópicos:
 * **[Pingando a Instancia](./02-teste-conectividade-icmp/README.md)** *Onde aprendi a configurar o protocolo correto para realizar o procedimento*
 
 ### 3. Aplicações Serverless (AWS Lambda)
-* **[Gerador de CPF - Full Stack Serverless](./gerador-cpf-web/README.md)** - *Desenvolvimento de uma ferramenta utilizando Python em AWS Lambda, integrada via Function URL com Frontend hospedado na Vercel.
+* **[Gerador de CPF - Full Stack Serverless](./03-gerador-cpf-web/README.md)** - *Desenvolvimento de uma ferramenta utilizando Python em AWS Lambda, integrada via Function URL com Frontend hospedado na Vercel.
+
+### 4. Mural de Mensagens (Bando de dados DynamoDB no AWS)
+* **[Mural de Mensagens -DynamoDB](./04-MuralComDynamoDB/README.md)** - *Desenvolvimento de ferramenta para armazenar informações, usando LAmbda pra ativar codigos e integrado com front Ed no Vercel
 
 ---
 
