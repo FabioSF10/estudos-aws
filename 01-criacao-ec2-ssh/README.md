@@ -48,3 +48,13 @@ Para eu não esquecer e servir de consulta:
 * Esse arquivo é a minha **Chave Privada**. Ele nunca deve ser compartilhado ou subido para o GitHub. Se eu perder esse arquivo, perco o acesso ao servidor. Se alguém roubar, rouba meu acesso. Por isso, ele fica protegido no meu notebookzinho guerreiro.
 
 ---
+
+---
+
+### 📬 Contato
+**Fabio Stefano**
+Linkedin: https://www.linkedin.com/in/fabio-figueiredo-5601041b2
+Email:Fabio.sf10@hotmail.com
+*Analista de Suporte T.I. | Focado em AWS Cloud & AWS Certified Cloud Practitioner Path*
+
+---
