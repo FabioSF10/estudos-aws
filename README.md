@@ -3,6 +3,8 @@
 Bem-vindo ao meu repositório de estudos focado em **Cloud Computing**. Aqui documento minha transição da TI tradicional para o mundo da nuvem, registrando cada novo conceito e configuração que aprendo na Amazon Web Services.
 
 ---
+LINK SITE: http://meu-portfolio-fabio-stefano.s3-website-us-east-1.amazonaws.com/
+---
 
 ## 📂 Projetos e Laboratórios
 
